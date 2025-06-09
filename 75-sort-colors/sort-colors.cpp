@@ -12,10 +12,7 @@ public:
                     min = j ;
                 }
             }
-            if(min != i)
-            {
-                swap(nums[i] , nums[min]);
-            }
+            swap(nums[i] , nums[min]);
         } 
     }
 };
