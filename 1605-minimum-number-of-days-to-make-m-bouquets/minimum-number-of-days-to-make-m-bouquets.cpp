@@ -1,13 +1,13 @@
 class Solution {
 public:
     int minDays(vector<int>& bloomDay, int m, int k) {
-
         int n = bloomDay.size();
-
-        if(n<(long)m*(long)k) return -1;
+        if (n < (long)m * (long)k) {
+            return -1;
+        }
         int low = INT_MAX;
         int high = INT_MIN;
-        int result=-1;
+        int result = -1;
         for (int i = 0; i < n; i++) {
             low = min(low, bloomDay[i]);
             high = max(high, bloomDay[i]);
@@ -15,7 +15,7 @@ public:
         while (low <= high) {
             int mid = (low + high) / 2;
             if (bloomDays(bloomDay, m, k, mid, n)) {
-               result=mid;
+                result = mid;
                 high = mid - 1;
             } else {
                 low = mid + 1;
@@ -38,7 +38,7 @@ public:
         minday += count / k;
         if (minday >= m) {
             return true;
-        } 
+        }
         return false;
     }
 };
